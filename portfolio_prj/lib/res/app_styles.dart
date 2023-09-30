@@ -22,7 +22,7 @@ class AppStyles {
       color: AppColors.black,
       fontWeight: FontWeight.w700,
       textBaseline: textBaseline,
-      fontSize: 48,
+      fontSize: 45,
       leadingDistribution: leadingDistribution);
 
   static TextStyle title = const TextStyle(
@@ -30,7 +30,7 @@ class AppStyles {
       color: AppColors.black,
       fontWeight: FontWeight.w500,
       textBaseline: textBaseline,
-      fontSize: 28,
+      fontSize: 25,
       leadingDistribution: leadingDistribution);
 
   static TextStyle content = const TextStyle(
@@ -38,6 +38,6 @@ class AppStyles {
       color: AppColors.black,
       fontWeight: FontWeight.w300,
       textBaseline: textBaseline,
-      fontSize: 18,
+      fontSize: 15,
       leadingDistribution: leadingDistribution);
 }

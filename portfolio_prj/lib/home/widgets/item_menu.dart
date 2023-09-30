@@ -31,9 +31,6 @@ class _ItemMenu extends State<ItemMenu> {
                       .copyWith(foreground: isHover ? paint : null),
                   gradient: const LinearGradient(
                       colors: [AppColors.blue, AppColors.pink])),
-              // child: Text(widget.title,
-              //     style: AppStyles.menu
-              //         .copyWith(foreground: isHover ? paint : null))
             )),
         onTap: () {},
         onHover: (hover) {

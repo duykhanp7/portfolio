@@ -23,26 +23,29 @@ class _AppInkWell extends State<AppInkWell> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      child: InkWell(
-        splashColor: AppColors.splash,
-        borderRadius: BorderRadius.circular(Dimens.borderRadius),
-        highlightColor: AppColors.white.withOpacity(0.8),
-        onTap: widget.onTap,
-        onHover: (hover) {
-          setState(() {
-            isHover = hover;
-            if (widget.onHover != null) {
-              widget.onHover!(hover);
-            }
-          });
-        },
-        onFocusChange: widget.onFocusChange,
-        child: Container(
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(Dimens.borderRadius),
+      child: Material(
+        color: AppColors.transparent,
+        child: InkWell(
+          splashColor: AppColors.splash,
+          borderRadius: BorderRadius.circular(Dimens.borderRadius),
+          highlightColor: AppColors.white.withOpacity(0.7),
+          onTap: widget.onTap,
+          onHover: (hover) {
+            setState(() {
+              isHover = hover;
+              if (widget.onHover != null) {
+                widget.onHover!(hover);
+              }
+            });
+          },
+          onFocusChange: widget.onFocusChange,
+          child: Container(
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(Dimens.borderRadius),
+            ),
+            child: widget.child,
           ),
-          child: widget.child,
         ),
       ),
     );

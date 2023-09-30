@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio_prj/bloc/app_bloc_providers.dart';
 import 'package:portfolio_prj/empty/empty_screen.dart';
 import 'package:portfolio_prj/home/home_screen.dart';
+import 'package:portfolio_prj/res/app_colors.dart';
 import 'package:portfolio_prj/route/paths.dart';
 import 'package:portfolio_prj/route/routes.dart';
 
@@ -22,7 +23,9 @@ class _AppScreen extends State<AppScreen> {
         providers: AppBlocProviders.provider,
         child: MaterialApp(
           title: 'Portfolio',
-          theme: ThemeData(primaryColor: Colors.amber),
+          theme: ThemeData(
+              primaryColor: Colors.amber,
+              scaffoldBackgroundColor: AppColors.white),
           home: const HomeScreen(),
           routes: AppRoutes.routes,
           initialRoute: AppPaths.home,
