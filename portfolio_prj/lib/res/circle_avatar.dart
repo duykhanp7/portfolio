@@ -25,7 +25,7 @@ class AppCircleAvatar extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(size.height / 2),
           child: Image.asset(AppImages.avatar,
-              width: (size.width - 30 / 2), height: (size.height - 30 / 2)),
+              width: (size.width - 25 / 2), height: (size.height - 25 / 2)),
         )
       ],
     );
