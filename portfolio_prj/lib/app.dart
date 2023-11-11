@@ -18,6 +18,11 @@ class AppScreen extends StatefulWidget {
 
 class _AppScreen extends State<AppScreen> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
         providers: AppBlocProviders.provider,

@@ -13,6 +13,7 @@ class AppCircleAvatar extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         Container(
+          padding: const EdgeInsets.all(2),
           height: size.height,
           width: size.width,
           decoration: BoxDecoration(
@@ -21,12 +22,15 @@ class AppCircleAvatar extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: <Color>[AppColors.avaGraStart, AppColors.avaGraEnd])),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(size.height / 2),
+            child: Image.asset(
+              AppImages.avatar,
+              fit: BoxFit.cover,
+              filterQuality: FilterQuality.high,
+            ),
+          ),
         ),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(size.height / 2),
-          child: Image.asset(AppImages.avatar,
-              width: (size.width - 25 / 2), height: (size.height - 25 / 2)),
-        )
       ],
     );
   }

@@ -10,4 +10,7 @@ class AppIcons {
   static const icJava = 'assets/icons/ic_java.svg';
   static const icKotlin = 'assets/icons/ic_kotlin.svg';
   static const icAttach = 'assets/icons/ic_attach.svg';
+
+  static const icMenu = 'assets/icons/ic_menu.svg';
+  static const icContentCopy = 'assets/icons/ic_content_copy.svg';
 }

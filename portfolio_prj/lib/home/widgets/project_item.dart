@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/material.dart';
+import 'package:portfolio_prj/common/extension/app_ex.dart';
 import 'package:portfolio_prj/res/app_colors.dart';
 import 'package:portfolio_prj/res/app_icons.dart';
 import 'package:portfolio_prj/res/app_images.dart';
 import 'package:portfolio_prj/res/app_styles.dart';
+import 'package:portfolio_prj/res/app_text.dart';
+import 'package:portfolio_prj/res/app_text_icon_button.dart';
 
 class ProjectItem extends StatelessWidget {
   const ProjectItem({super.key});
@@ -18,73 +21,100 @@ class ProjectItem extends StatelessWidget {
           boxShadow: <BoxShadow>[
             BoxShadow(
                 offset: Offset.zero,
-                color: AppColors.black.withOpacity(0.05),
-                spreadRadius: 15,
+                color: AppColors.black.withOpacity(0.06),
+                spreadRadius: 20,
                 blurRadius: 15)
           ]),
       child: ClipRRect(
           borderRadius: BorderRadius.circular(20),
-          child: Column(
+          child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Expanded(
-                    flex: 3,
-                    child: Image.asset(
-                      AppImages.avatar,
-                      width: double.infinity,
-                      filterQuality: FilterQuality.high,
-                      fit: BoxFit.cover,
-                    )),
+                    flex: 2,
+                    child: Image.asset(AppImages.avatar,
+                        height: 300,
+                        filterQuality: FilterQuality.high,
+                        fit: BoxFit.cover)),
                 Expanded(
-                    flex: 4,
+                    flex: 3,
                     child: Padding(
-                        padding: const EdgeInsets.fromLTRB(25, 10, 30, 25),
+                        padding: EdgeInsets.fromLTRB(
+                            context.isDesktop ? 20 : 5,
+                            10,
+                            context.isDesktop ? 20 : 5,
+                            context.isDesktop ? 20 : 5),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
                           children: [
-                            Expanded(
-                                child: Container(
-                              alignment: Alignment.centerLeft,
-                              child: Text('Project Tile goes here',
+                            Flexible(
+                              child: AppText('Project Tile goes here',
                                   textAlign: TextAlign.start,
-                                  overflow: TextOverflow.ellipsis,
                                   style: AppStyles.title.copyWith(
-                                      fontSize: 28, color: AppColors.black)),
-                            )),
-                            Expanded(
-                                flex: 3,
-                                child: Text(
-                                    'This is sample project description random things are here in description This is sample project lorem ipsum generator for dummy content',
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 5,
-                                    style: AppStyles.title.copyWith(
-                                        fontSize: 18,
-                                        color: AppColors.black,
-                                        fontWeight: FontWeight.w300))),
-                            Expanded(
-                                child: Text(
-                                    'Tech stack : HTML , JavaScript, SASS, React',
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 5,
-                                    style: AppStyles.title.copyWith(
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 16,
-                                        color: AppColors.black))),
-                            Expanded(
-                              child: Row(
-                                children: [
-                                  SvgPicture.asset(
-                                    AppIcons.icAttach,
-                                  ),
-                                  const Expanded(child: Text('Live Preview')),
-                                  const Spacer(),
-                                  SvgPicture.asset(
-                                    AppIcons.icGithub,
-                                  ),
-                                  const Expanded(child: Text('View Code'))
-                                ],
-                              ),
+                                    fontSize: 30,
+                                    color: AppColors.black,
+                                    fontWeight: FontWeight.w600,
+                                  )),
                             ),
+                            const SizedBox(height: 5),
+                            Flexible(
+                              child: AppText(
+                                  'This is sample project description random things are here in description This is sample project lorem ipsum generator for dummy content',
+                                  textAlign: TextAlign.start,
+                                  style: AppStyles.title.copyWith(
+                                      fontSize: 25,
+                                      color: const Color(0XFF666666),
+                                      fontWeight: FontWeight.w300)),
+                            ),
+                            const SizedBox(height: 5),
+                            Flexible(
+                              child: AppText('Tech stack : ',
+                                  child: [
+                                    TextSpan(
+                                        text: 'HTML , JavaScript, SASS, React',
+                                        style: AppStyles.title.copyWith(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 25,
+                                            color: const Color(0XFF42446E)))
+                                  ],
+                                  textAlign: TextAlign.start,
+                                  style: AppStyles.title.copyWith(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 25,
+                                      color: const Color(0XFF42446E))),
+                            ),
+
+                            //Link
+                            Row(
+                              children: [
+                                AppTextIconButton(
+                                    childCenter: true,
+                                    textAlign: TextAlign.center,
+                                    onTap: () {},
+                                    title: 'Live Preview',
+                                    style: AppStyles.content.copyWith(
+                                        fontSize: 25,
+                                        decoration: TextDecoration.underline),
+                                    icon: AppIcons.icAttach),
+                                const SizedBox(
+                                  width: 30,
+                                ),
+                                AppTextIconButton(
+                                  childCenter: true,
+                                  textAlign: TextAlign.center,
+                                  title: 'View Code',
+                                  onTap: () {
+                                    //TO DO
+                                  },
+                                  icon: AppIcons.icGithub,
+                                  style: AppStyles.content.copyWith(
+                                      fontSize: 25,
+                                      decoration: TextDecoration.underline),
+                                )
+                              ],
+                            )
                           ],
                         )))
               ])),
