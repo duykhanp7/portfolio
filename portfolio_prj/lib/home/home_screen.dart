@@ -12,6 +12,7 @@ import 'package:portfolio_prj/res/app_images.dart';
 import 'package:portfolio_prj/res/app_text_icon_button.dart';
 import 'package:portfolio_prj/res/res.dart';
 
+// This is home screen
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -175,8 +176,8 @@ class _HomeScreen extends State<HomeScreen> {
               Expanded(
                 flex: 1,
                 child: Text.rich(
-                    textScaleFactor: context.responsive<double>(
-                        mobile: 0.5, tablet: 1, desktop: 1, watch: 0.5),
+                    textScaler: TextScaler.linear(context.responsive<double>(
+                        mobile: 0.5, tablet: 1, desktop: 1, watch: 0.5)),
                     TextSpan(
                         text: 'Hi👋,',
                         style: AppStyles.header
