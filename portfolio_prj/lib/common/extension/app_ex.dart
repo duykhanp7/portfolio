@@ -71,10 +71,13 @@ extension AppContext on BuildContext {
       gravity:
           isDesktop || isTablet ? ToastGravity.TOP_RIGHT : ToastGravity.BOTTOM);
 
-  bool get isMobile => size.width >= 300;
+  bool get isMobile => size.width < 600;
   bool get isDesktop => size.width >= 1200;
-  bool get isTablet => size.width >= 600;
+  bool get isTablet => size.width >= 600 && size.width < 1200;
   bool get isWatch => size.width < 300;
-  bool get isLargeTablet => size.width >= 720;
-  bool get isSmallTablet => size.width >= 600;
+  bool get isLargeTablet => size.width >= 720 && size.width < 1200;
+  bool get isSmallTablet => size.width >= 600 && size.width < 720;
+
+  double get width => size.width;
+  double get height => size.height;
 }
