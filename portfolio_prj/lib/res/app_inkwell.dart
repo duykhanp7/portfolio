@@ -26,9 +26,9 @@ class _AppInkWell extends State<AppInkWell> {
       child: Material(
         color: AppColors.transparent,
         child: InkWell(
-          splashColor: AppColors.splash,
+          splashColor: AppColors.splash.withOpacity(0.1),
           borderRadius: BorderRadius.circular(Dimens.borderRadius),
-          highlightColor: AppColors.white.withOpacity(0.7),
+          highlightColor: AppColors.white.withOpacity(0.5),
           onTap: widget.onTap,
           onHover: (hover) {
             setState(() {

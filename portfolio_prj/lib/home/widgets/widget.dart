@@ -1,0 +1,11 @@
+export 'about_widget.dart';
+export 'app_appbar.dart';
+export 'app_logo_text.dart';
+export 'contact_widget.dart';
+export 'gradient_text.dart';
+export 'info_email_phone_widget.dart';
+export 'menu_widget.dart';
+export 'project_item.dart';
+export 'project_widget.dart';
+export 'socials_widget.dart';
+export 'tech_stack_widget.dart';
