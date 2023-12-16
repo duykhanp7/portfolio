@@ -33,8 +33,13 @@ class _AppTextIconButtonState extends State<AppTextIconButton> {
   Widget build(BuildContext context) {
     final len = context.responsive<double>(mobile: 20, desktop: 25, tablet: 15);
 
-    final icon = SvgPicture.asset(widget.icon,
-        fit: BoxFit.cover, width: len, height: len);
+    final icon = SvgPicture.asset(
+      widget.icon,
+      fit: BoxFit.cover,
+      width: len,
+      height: len,
+      color: Colors.white,
+    );
 
     List<Widget> list = [
       widget.onlyTapIcon

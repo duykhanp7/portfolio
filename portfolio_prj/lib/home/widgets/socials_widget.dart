@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:portfolio_prj/common/common.dart';
-import 'package:portfolio_prj/res/app_button.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:portfolio_prj/home/widgets/social_button.dart';
 
 class SocialWidget extends StatefulWidget {
   const SocialWidget({
@@ -45,18 +44,10 @@ class _SocialWidgetState extends State<SocialWidget> {
         SocialType.values.length,
         (index) => SizedBox(
               height: widget.height,
-              child: AppButton(
-                size: Size(len, len),
-                icon: SocialType.values.elementAt(index).icon,
-                iconColor: const Color(0XFF42446E),
-                text: widget.showText
-                    ? context.isDesktop
-                        ? null
-                        : SocialType.values.elementAt(index).title
-                    : null,
-                onTap: () async {
-                  await launchUrlString(SocialType.values.elementAt(index).url);
-                },
+              child: SocialButton(
+                index: index,
+                len: len,
+                showText: widget.showText,
               ),
             ));
   }

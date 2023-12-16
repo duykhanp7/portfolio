@@ -10,13 +10,15 @@ class AppButton extends StatefulWidget {
       this.iconColor,
       this.text,
       required this.onTap,
-      this.style});
+      this.style,
+      this.onHover});
 
   final String icon;
   final Size? size;
   final Color? iconColor;
   final String? text;
   final VoidCallback onTap;
+  final Function(bool hover)? onHover;
   final TextStyle? style;
   @override
   State<StatefulWidget> createState() => _AppButton();
@@ -33,30 +35,32 @@ class _AppButton extends State<AppButton> {
       height: widget.size?.height ?? 30,
     );
     return AppInkWell(
-        onTap: widget.onTap,
-        child: Container(
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
-          padding: const EdgeInsets.all(4),
-          child: widget.text == null
-              ? icon
-              : Table(
-                  defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                  children: [
-                    TableRow(children: [
-                      TableCell(
-                          verticalAlignment: TableCellVerticalAlignment.middle,
-                          child: icon),
-                      TableCell(
-                          verticalAlignment: TableCellVerticalAlignment.middle,
-                          child: Row(
-                            children: [
-                              const SizedBox(width: 5),
-                              AppText(widget.text ?? '', style: widget.style)
-                            ],
-                          ))
-                    ])
-                  ],
-                ),
-        ));
+      onTap: widget.onTap,
+      onHover: widget.onHover,
+      child: Container(
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+        padding: const EdgeInsets.all(4),
+        child: widget.text == null
+            ? icon
+            : Table(
+                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                children: [
+                  TableRow(children: [
+                    TableCell(
+                        verticalAlignment: TableCellVerticalAlignment.middle,
+                        child: icon),
+                    TableCell(
+                        verticalAlignment: TableCellVerticalAlignment.middle,
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 5),
+                            AppText(widget.text ?? '', style: widget.style)
+                          ],
+                        ))
+                  ])
+                ],
+              ),
+      ),
+    );
   }
 }

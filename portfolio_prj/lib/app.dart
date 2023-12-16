@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:portfolio_prj/bloc/app_bloc_providers.dart';
 import 'package:portfolio_prj/empty/empty_screen.dart';
 import 'package:portfolio_prj/home/home_screen.dart';
@@ -19,6 +20,7 @@ class AppScreen extends StatefulWidget {
 class _AppScreen extends State<AppScreen> {
   @override
   void initState() {
+    FlutterNativeSplash.remove();
     super.initState();
   }
 
@@ -38,6 +40,7 @@ class _AppScreen extends State<AppScreen> {
           onUnknownRoute: (settings) =>
               MaterialPageRoute(builder: (context) => const EmptyScreen()),
           debugShowCheckedModeBanner: false,
+
         ));
   }
 }

@@ -35,33 +35,17 @@ class _AppAppBar extends State<AppAppBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        // Padding(
-        //     padding: EdgeInsets.zero,
-        //     child: Container(
-        //       height: 100,
-        //       decoration:
-        //           BoxDecoration(color: AppColors.white, boxShadow: <BoxShadow>[
-        //         BoxShadow(
-        //             offset: const Offset(0, 1),
-        //             color: AppColors.black.withOpacity(0.1),
-        //             blurRadius: 6,
-        //             spreadRadius: 1)
-        //       ]),
-        //     )),
-        Container(
-            decoration:
-                BoxDecoration(color: AppColors.white, boxShadow: <BoxShadow>[
-              BoxShadow(
-                  offset: const Offset(0, 1),
-                  color: AppColors.black.withOpacity(0.1),
-                  blurRadius: 6,
-                  spreadRadius: 1)
+    return Container(
+        decoration: const BoxDecoration(
+            color: Colors.transparent,
+            boxShadow: <BoxShadow>[
+              // BoxShadow(
+              //     offset: const Offset(0, 1),
+              //     color: AppColors.black.withOpacity(0.1),
+              //     blurRadius: 6,
+              //     spreadRadius: 1)
             ]),
-            child: _buildWidget())
-      ],
-    );
+        child: _buildWidget());
   }
 
   Widget _buildWidget() {

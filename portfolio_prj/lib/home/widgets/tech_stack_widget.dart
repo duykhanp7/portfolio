@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter/material.dart';
+import 'package:portfolio_prj/home/widgets/tech_item.dart';
 import '../../common/common.dart';
 import '../../res/res.dart';
 
@@ -10,24 +10,23 @@ class TechStackWidget extends StatefulWidget {
   State<TechStackWidget> createState() => _TechStackWidgetState();
 }
 
-class _TechStackWidgetState extends State<TechStackWidget> {
+class _TechStackWidgetState extends State<TechStackWidget>
+    with SingleTickerProviderStateMixin {
+  final List<Languages> languages = Languages.values;
+
   @override
   Widget build(BuildContext context) {
-    const languages = Languages.values;
     return Column(
       key: widget.techStackKey,
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         AppText('My Tech Stack',
-            style: AppStyles.header
-                .copyWith(color: AppColors.turple, fontSize: 40)),
-        const SizedBox(height: 15),
+            style: AppStyles.header.copyWith(fontSize: 40)),
+        const SizedBox(height: 30),
         AppText('Technologies I’ve been working with recently',
-            style: AppStyles.header.copyWith(
-                color: AppColors.brown,
-                fontSize: 28,
-                fontWeight: FontWeight.w400)),
+            style: AppStyles.header
+                .copyWith(fontSize: 28, fontWeight: FontWeight.w400)),
         const SizedBox(height: 15),
         GridView.builder(
             physics: const NeverScrollableScrollPhysics(),
@@ -41,9 +40,9 @@ class _TechStackWidgetState extends State<TechStackWidget> {
                     context.responsive(mobile: 50, desktop: 150, tablet: 100),
                 mainAxisSpacing:
                     context.responsive(mobile: 20, tablet: 30, desktop: 30)),
-            itemBuilder: (context, index) => Container(
-                alignment: Alignment.center,
-                child: SvgPicture.asset(languages.elementAt(index).url)))
+            itemBuilder: (context, index) => TechItem(
+                  languages: languages.elementAt(index),
+                ))
       ],
     );
   }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_prj/home/widgets/author_widget.dart';
 import 'package:portfolio_prj/home/widgets/widget.dart';
 
 import '../../common/common.dart';
 import '../../res/res.dart';
-
 
 class ContactWidget extends StatefulWidget {
   const ContactWidget(
@@ -46,13 +46,12 @@ class _ContactWidgetState extends State<ContactWidget> {
                 const SizedBox(height: 60),
                 Row(
                   children: [
+                    const Flexible(child: AuthorWidget(fontSize: 25)),
                     MenuWidget(
                       direction: AppDirection.horizontal,
                       fontSize: 25,
                       onTap: widget.onTap,
                     ),
-                    const Spacer(),
-                    ...textOwener(fontSize: 25),
                   ],
                 )
               ],
@@ -68,6 +67,7 @@ class _ContactWidgetState extends State<ContactWidget> {
                         MenuWidget(
                           direction: AppDirection.vertical,
                           onTap: widget.onTap,
+                          fontSize: 30,
                         ),
                       ],
                     )),
@@ -101,28 +101,9 @@ class _ContactWidgetState extends State<ContactWidget> {
                 SizedBox(
                     height: context.responsive<double>(
                         mobile: 20, tablet: 30, desktop: 50, watch: 5)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: textOwener(fontSize: 25),
-                )
+                const AuthorWidget(fontSize: 30)
               ],
             ),
     );
-  }
-
-  List<Widget> textOwener({bool textAuth = true, double fontSize = 20}) {
-    return [
-      textAuth
-          ? AppText('Designed and built by ',
-              style: AppStyles.menu.copyWith(fontSize: fontSize))
-          : Container(),
-      Expanded(
-        child: GradientText('Khang Pham',
-            alignment: TextAlign.left,
-            style: AppStyles.menu.copyWith(fontSize: fontSize),
-            gradient:
-                const LinearGradient(colors: [AppColors.blue, AppColors.pink])),
-      )
-    ];
   }
 }

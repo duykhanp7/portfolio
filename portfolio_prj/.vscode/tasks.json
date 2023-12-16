@@ -1,0 +1,161 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"build",
+				"web",
+				"--release",
+				"--target=lib/main_prod.dart",
+				"--dart-define-from-file=env/prod.json"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "Build website",
+			"detail": "",
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"build",
+				"aar",
+				"--release",
+				"--target=lib/main_prod.dart",
+				"--dart-define-from-file=env/prod.json"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "Build AAR",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"build",
+				"apk",
+				"--release",
+				"--target=lib/main_prod.dart",
+				"--dart-define-from-file=env/prod.json"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "Build APK",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"build",
+				"appbundle",
+				"--release",
+				"--flavor=free",
+				"--target=lib/main_prod.dart",
+				"--dart-define-from-file=env/prod.json"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "Build app bundle",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"build",
+				"bundle",
+				"--release",
+				"--target=lib/main_prod.dart",
+				"--dart-define-from-file=env/prod.json"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"label": "Build bundle",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"packages",
+				"pub",
+				"run",
+				"build_runner",
+				"build",
+				"--delete-conflicting-outputs"
+			],
+			"problemMatcher": [
+				"$dart-build_runner"
+			],
+			"group": "build",
+			"label": "Build runner",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"pub",
+				"upgrade"
+			],
+			"problemMatcher": [],
+			"label": "Flutter upgrade",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"pub",
+				"get"
+			],
+			"problemMatcher": [],
+			"label": "Flutter pub get",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"install"
+			],
+			"problemMatcher": [],
+			"label": "Flutter install",
+			"detail": ""
+		},
+		{
+			"type": "flutter",
+			"command": "flutter",
+			"args": [
+				"clean"
+			],
+			"problemMatcher": [],
+			"label": "Flutter clean",
+			"detail": ""
+		},
+		{
+			"label": "Clean and re-pub get",
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"Flutter clean",
+				"Flutter pub get",
+				"Build runner"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "Fix apply",
+			"detail": "",
+			"type": "dart",
+			"command": "dart",
+			"args": [
+				"fix",
+				"--apply"
+			]
+		}
+	],
+}
