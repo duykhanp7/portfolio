@@ -20,7 +20,7 @@ class _AppTextState extends State<AppText> {
   Widget build(BuildContext context) {
     return RichText(
         textScaler: TextScaler.linear(context.responsive<double>(
-            mobile: 0.55, tablet: 0.5, desktop: 0.8, watch: 0.5)),
+            mobile: 0.55, tablet: 0.6, desktop: 0.8, watch: 0.5)),
         textAlign: widget.textAlign ?? TextAlign.center,
         maxLines: widget.maxLines ?? 5,
         overflow: TextOverflow.ellipsis,

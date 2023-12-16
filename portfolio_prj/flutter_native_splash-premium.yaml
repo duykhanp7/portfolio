@@ -1,0 +1,16 @@
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: assets/logo/cat.png
+  # branding: assets/logo/premium.png
+  # branding_mode: bottom
+
+  #color_dark: "#042a49"
+  #background_image_dark: "assets/dark-background.png"
+  #image_dark: assets/splash-invert.png
+  #branding_dark: assets/dart_dark.png
+
+android_12:
+  icon_background_color: "#fc039d"
+  image: assets/logo/cat.png
+  icon_background_color_dark: "#544c51"
+  image_dark: assets/logo/cat.png

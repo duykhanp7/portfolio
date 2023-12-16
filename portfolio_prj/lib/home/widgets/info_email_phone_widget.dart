@@ -46,8 +46,7 @@ class _InfoEmailPhoneWidgetState extends State<InfoEmailPhoneWidget> {
             context.showMessage('Copy phone successfully!');
           },
           icon: AppIcons.icContentCopy,
-          style: AppStyles.menu
-              .copyWith(color: const Color(0XFF42446E), fontSize: 30)),
+          style: AppStyles.menu.copyWith(fontSize: 30)),
       SizedBox(
           width: context.responsive<double>(
               mobile: 10, desktop: 60, tablet: 30, watch: 5)),
@@ -66,8 +65,7 @@ class _InfoEmailPhoneWidgetState extends State<InfoEmailPhoneWidget> {
             context.showMessage('Copy email successfully!');
           },
           icon: AppIcons.icContentCopy,
-          style: AppStyles.menu
-              .copyWith(color: const Color(0XFF42446E), fontSize: 30)),
+          style: AppStyles.menu.copyWith(fontSize: 30)),
       SizedBox(
           width: context.responsive<double>(
               mobile: 10, desktop: 60, tablet: 30, watch: 5))

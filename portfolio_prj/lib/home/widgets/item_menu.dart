@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:portfolio_prj/res/res.dart';
-import 'gradient_text.dart';
 
 class ItemMenu extends StatefulWidget {
   const ItemMenu(
@@ -18,33 +17,59 @@ class ItemMenu extends StatefulWidget {
   State<StatefulWidget> createState() => _ItemMenu();
 }
 
-class _ItemMenu extends State<ItemMenu> {
+class _ItemMenu extends State<ItemMenu> with SingleTickerProviderStateMixin {
   bool isHover = false;
+
+  late AnimationController _animationController;
+  late Animation<double> scaleTween;
+
+  @override
+  void initState() {
+    _animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 300));
+
+    scaleTween = CurvedAnimation(
+            parent: _animationController, curve: Curves.fastLinearToSlowEaseIn)
+        .drive(Tween<double>(begin: 1.0, end: 0.9));
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final paint = Paint()
-      ..shader =
-          const LinearGradient(colors: <Color>[AppColors.blue, AppColors.pink])
-              .createShader(const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
     return AppInkWell(
         onTap: widget.onTap,
         onHover: (hover) {
           setState(() {
             isHover = hover;
           });
+          if (hover) {
+            _animationController.forward();
+          } else {
+            _animationController.reverse();
+          }
         },
-        child: Padding(
-            padding: const EdgeInsets.fromLTRB(6, 4, 6, 4),
-            child: Container(
-              alignment: Alignment.center,
-              child: GradientText(widget.title,
-                  style: AppStyles.menu.copyWith(
-                      foreground: isHover ? paint : null,
-                      fontSize: widget.fontSize),
-                  gradient: LinearGradient(
-                      colors:
-                          widget.color ?? [AppColors.blue, AppColors.pink])),
-            )));
+        child: AnimatedBuilder(
+          animation: scaleTween,
+          builder: (context, child) => ScaleTransition(
+            scale: scaleTween,
+            child: child,
+          ),
+          child: Padding(
+              padding: const EdgeInsets.fromLTRB(6, 4, 6, 4),
+              child: Container(
+                alignment: Alignment.center,
+                child: AppText(
+                  widget.title,
+                  style: AppStyles.menu.copyWith(fontSize: widget.fontSize),
+                ),
+              )),
+        ));
   }
 }

@@ -15,15 +15,11 @@ class _ProjectWidgetState extends State<ProjectWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(key: widget.projectKey, children: [
-      AppText('Projects',
-          style:
-              AppStyles.header.copyWith(color: AppColors.turple, fontSize: 40)),
+      AppText('Projects', style: AppStyles.header.copyWith(fontSize: 40)),
       const SizedBox(height: 15),
       AppText('Things I’ve built so far',
-          style: AppStyles.header.copyWith(
-              color: AppColors.brown,
-              fontSize: 28,
-              fontWeight: FontWeight.w400)),
+          style: AppStyles.header
+              .copyWith(fontSize: 28, fontWeight: FontWeight.w400)),
       SizedBox(height: context.isDesktop || context.isTablet ? 50 : 25),
       _buildListProjectItemOtherDevice()
     ]);

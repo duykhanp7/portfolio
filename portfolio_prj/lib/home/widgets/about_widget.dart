@@ -1,11 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:portfolio_prj/common/extension/app_ex.dart';
+import 'package:portfolio_prj/home/widgets/typing_text_animation.dart';
 import '../../res/res.dart';
 
 class AboutWidget extends StatefulWidget {
-  const AboutWidget({super.key, required this.aboutKey});
+  const AboutWidget(
+      {super.key,
+      required this.aboutKey,
+      required this.avatarListenable,
+      required this.introdutionListenable});
 
   final GlobalKey aboutKey;
+  final Listenable avatarListenable;
+  final Listenable introdutionListenable;
 
   @override
   State<AboutWidget> createState() => _AboutWidgetState();
@@ -18,56 +25,34 @@ class _AboutWidgetState extends State<AboutWidget> {
       mobile: Padding(
           key: widget.aboutKey,
           padding: EdgeInsets.symmetric(
-              horizontal: context.height *
-                  context.responsive(mobile: 0.02, desktop: 0.2, tablet: 0.1),
-              vertical: context.width * 0.1),
+              horizontal: context.width *
+                  context.responsive(mobile: 0.05, desktop: 0.1, tablet: 0.1),
+              vertical: context.height *
+                  context.responsive(mobile: 0.2, tablet: 0.25, desktop: 0.25)),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              /// Introduce text
+              // Introduce text
               Expanded(
-                flex: 1,
-                child: Text.rich(
-                    textScaler: TextScaler.linear(context.responsive<double>(
-                        mobile: 0.5, tablet: 1, desktop: 1, watch: 0.5)),
-                    TextSpan(
-                        text: 'Hi👋,',
-                        style: AppStyles.header
-                            .copyWith(color: AppColors.turple, fontSize: 35),
-                        children: [
-                          TextSpan(
-                              text: '\nMy name is',
-                              style: AppStyles.header.copyWith(
-                                  color: AppColors.turple, fontSize: 40)),
-                          TextSpan(
-                              text: '\nDuy Khang',
-                              style: AppStyles.header.copyWith(
-                                  fontSize: 40,
-                                  foreground: Paint()
-                                    ..shader = const LinearGradient(
-                                      colors: <Color>[
-                                        AppColors.blue,
-                                        AppColors.pink
-                                      ],
-                                    ).createShader(const Rect.fromLTWH(
-                                        0.0, 0.0, 200.0, 70.0)))),
-                          TextSpan(
-                              text: '\nI build things for mobile',
-                              style: AppStyles.header.copyWith(
-                                  color: AppColors.turple, fontSize: 40))
-                        ])),
+                child: TypingAnimatedWidget(
+                  listenable: widget.introdutionListenable,
+                  text:
+                      '''Hi there,\nMy name is Duy Khang\nI build things for mobile''',
+                ),
               ),
 
               /// Logo
               Expanded(
                   flex: 1,
                   child: AppCircleAvatar(
-                      url: AppImages.avatar,
-                      size: context.responsive(
-                          mobile: const Size(180, 180),
-                          tablet: const Size(250, 250),
-                          desktop: const Size(350, 350))))
+                    url: AppImages.avatarBg,
+                    listenable: widget.avatarListenable,
+                    size: context.responsive(
+                        mobile: const Size(180, 180),
+                        tablet: const Size(250, 250),
+                        desktop: const Size(350, 350)),
+                  ))
             ],
           )),
     );

@@ -1,18 +1,22 @@
 import 'package:portfolio_prj/res/app_icons.dart';
 
 enum Languages {
-  c('C', 'c', AppIcons.icC),
-  cplusplus('C++', 'c++', AppIcons.icCPlusPlus),
-  git('Git', 'git', AppIcons.icGit),
-  flutter('Flutter', 'flutter', AppIcons.icFlutter),
-  java('Java', 'java', AppIcons.icJava),
-  kotlin('Kotlin', 'kotlin', AppIcons.icKotlin);
+  c('C', 'c', AppIcons.icC, 'https://www.w3schools.com/c/'),
+  cplusplus(
+      'C++', 'c++', AppIcons.icCPlusPlus, 'https://www.w3schools.com/cpp/'),
+  git('Git', 'git', AppIcons.icGit, 'https://git-scm.com/doc'),
+  flutter(
+      'Flutter', 'flutter', AppIcons.icFlutter, 'https://docs.flutter.dev/'),
+  java('Java', 'java', AppIcons.icJava, 'https://dev.java/learn/'),
+  kotlin('Kotlin', 'kotlin', AppIcons.icKotlin,
+      'https://kotlinlang.org/docs/home.html');
 
-  const Languages(this.title, this.code, this.url);
+  const Languages(this.title, this.code, this.url, this.urlDocs);
 
   final String title;
   final String code;
   final String url;
+  final String urlDocs;
 }
 
 enum SocialType {

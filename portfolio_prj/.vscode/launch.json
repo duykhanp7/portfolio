@@ -1,0 +1,41 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Portfolio Dev",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor=free",
+                "--dart-define-from-file=env/dev.json",
+            ],
+            "program": "lib/main.dart",
+        },
+        {
+            "name": "Portfolio Profile",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor=paid",
+                "--dart-define-from-file=env/stag.json",
+            ],
+            "program": "lib/main_stag.dart"
+        },
+        {
+            "name": "Portfolio Release",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor=premium",
+                "--dart-define-from-file=env/prod.json",
+            ],
+            "program": "lib/main_prod.dart"
+        }
+    ],
+}

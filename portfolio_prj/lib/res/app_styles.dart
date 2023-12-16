@@ -11,7 +11,7 @@ class AppStyles {
 
   static TextStyle menu = const TextStyle(
       fontFamily: fontDMSans,
-      color: AppColors.brown,
+      color: AppColors.white,
       fontWeight: FontWeight.w500,
       textBaseline: textBaseline,
       fontSize: 20,
@@ -19,7 +19,7 @@ class AppStyles {
 
   static TextStyle header = const TextStyle(
       fontFamily: fontPoppins,
-      color: AppColors.black,
+      color: AppColors.white,
       fontWeight: FontWeight.w700,
       textBaseline: textBaseline,
       fontSize: 45,
@@ -27,7 +27,7 @@ class AppStyles {
 
   static TextStyle title = const TextStyle(
       fontFamily: fontPoppins,
-      color: AppColors.black,
+      color: AppColors.white,
       fontWeight: FontWeight.w500,
       textBaseline: textBaseline,
       fontSize: 25,
